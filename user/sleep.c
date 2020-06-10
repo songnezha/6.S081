@@ -9,7 +9,7 @@ int main(int argc, char **argv){
 
     if(argc!=2){
         printf("Need one argument\n");
-        exit(0);
+        exit();
     }
     time = atoi(argv[1]);
     
@@ -17,5 +17,5 @@ int main(int argc, char **argv){
 
     printf("%d\n", uptime());
 
-    exit(0);
+    exit();
 }

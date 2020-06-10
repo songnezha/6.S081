@@ -12,7 +12,7 @@ int main(){
     
     if(tmp1 == -1 || tmp2 == -1){
         printf("error\n");
-        exit(0);
+        exit();
     }
 
     if(fork() == 0){
@@ -21,17 +21,17 @@ int main(){
         write(child_fd[1],"received pong", 20);
         close(child_fd[1]);
         close(parent_fd[0]);
-        exit(0);
+        exit();
     }
     else{
         write(parent_fd[1],"received ping", 20);
         read(child_fd[0], buffer, 20);
         printf("%d: %s\n", getpid(), buffer);
-        wait(0);
+        wait();
         close(parent_fd[1]);
         close(child_fd[0]);
-        exit(0);
+        exit();
     }
 
-    exit(0);
+    exit();
 }

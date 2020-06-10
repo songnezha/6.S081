@@ -76,10 +76,10 @@ void find(char* path, char* name){
 int main(int argc, char **argv){
     if(argc < 3){
         fprintf(2, "Not enough args\n");
-        exit(0);
+        exit();
     }
 
     find(argv[1], argv[2]);
 
-    exit(0);
+    exit();
 }

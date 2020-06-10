@@ -24,7 +24,7 @@ int main(int argc, char **argv){
   
   if(argc < 3){
     fprintf(2, "usage: xargs [command]\n");
-    exit(0);
+    exit();
   }
 
   while(read_line(0, line) != 0){
@@ -38,8 +38,8 @@ int main(int argc, char **argv){
     if(fork()==0){
       exec(argv[1], arg);
     }
-    else wait(0);
+    else wait();
   }
 
-  exit(0);
+  exit();
 }

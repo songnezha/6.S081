@@ -26,16 +26,16 @@ void recurse(){
         printf("prime %d\n", num);
         if(pipe(fd) == -1){
             printf("error\n");
-            exit(0);
+            exit();
         }
         if(fork()){
             mydup(0,fd);
             recurse();
-            exit(0);
+            exit();
         }else{
             mydup(1, fd);
             check(num);
-            exit(0);
+            exit();
         }
     }
 }
@@ -44,18 +44,18 @@ int main(){
     int fd[2];
     if(pipe(fd) == -1){
         printf("error\n");
-        exit(0);
+        exit();
     }
 
     if(fork()){
         mydup(0, fd);
         recurse();
-        exit(0);
+        exit();
     }else{
         mydup(1, fd);
         for(int i=2; i<=35; i++)
             write(1, &i, sizeof(i));
-        wait(0);
+        wait();
     }
-    exit(0);
+    exit();
 }
